@@ -972,7 +972,6 @@ blockquote > cite {font-weight: 400;font-size: 14px;display: block;}
     list-style: none;
     padding: 30px;
     margin: 0;
-    margin-top: 40px;
     text-align: left;
     background-color: #f9f9f9;
     position: relative;
@@ -986,6 +985,9 @@ blockquote > cite {font-weight: 400;font-size: 14px;display: block;}
     float: left;
     align-items: center;
 }
+  .margin-bottom-home-contanct{
+  margin-bottom: 20px;
+  }
 
 .address-item i{
     font-size: 35px;
@@ -1144,11 +1146,11 @@ blockquote > cite {font-weight: 400;font-size: 14px;display: block;}
         -o-transition: all 0.3s ease-in-out;
         -ms-transition: all 0.3s ease-in-out;
         transition: all 0.3s ease-in-out;
-       
+
     }
     .site-nav.active{
         left: 0;
-        
+
     }
     .sidemenu_btn{
         display: inline-block;
@@ -1208,7 +1210,7 @@ blockquote > cite {font-weight: 400;font-size: 14px;display: block;}
 
    .header-left{
     z-index: 91;
-    overflow: visible;   
+    overflow: visible;
    }
 
 }
