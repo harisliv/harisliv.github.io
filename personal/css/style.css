@@ -445,15 +445,15 @@ blockquote > cite {font-weight: 400;font-size: 14px;display: block;}
 .slider-image {
     position: relative;
     margin: 0 auto;
-    background-color: #35ab39;
     border-radius: 50%;
     top: 150px;
     margin-bottom: -80px;
+    left: 50px;
 }
 
 .slider-image img {
     top: -150px;
-    width: 100%;
+    width: 80%;
     position: relative;
 }
 
@@ -1060,6 +1060,7 @@ blockquote > cite {font-weight: 400;font-size: 14px;display: block;}
     .slider-image {
         max-width: 200px;
         margin: 0 auto 50px;
+        left: 0;
     }
 
     .shape-triangle,.shape-square,.shape-circle{
