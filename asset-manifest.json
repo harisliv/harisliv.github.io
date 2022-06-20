@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/static/css/main.43c86f1c.css",
+    "main.js": "/static/js/main.3382256d.js",
+    "static/media/me.png": "/static/media/me.960a2babba33ffe31ba6.png",
+    "static/media/CV_HARIS_LIVIERATOS_2022.pdf": "/static/media/CV_HARIS_LIVIERATOS_2022.c13b1af543cb002a6b75.pdf",
+    "static/media/next.svg": "/static/media/next.c7f8ec5f946156159f575f122e4a9e68.svg",
+    "static/media/github.png": "/static/media/github.a855c3975c028d8069f5.png",
+    "static/media/linkedin.png": "/static/media/linkedin.f249b38224ca41a0b909.png",
+    "static/media/sass-icon.svg": "/static/media/sass-icon.8351205a93eafac2e392b26acf7580e1.svg",
+    "static/media/mysql-icon.svg": "/static/media/mysql-icon.e5a509a5d3ca7443ae6ccf379181381d.svg",
+    "static/media/node-icon.svg": "/static/media/node-icon.3dc364b8e9beb3561620274aea4f0844.svg",
+    "static/media/redux.svg": "/static/media/redux.a95675408ae17c456965e2f09376c31a.svg",
+    "static/media/typescript-icon.svg": "/static/media/typescript-icon.17d5e87eac2c9d1dc722ce1e0b60d5df.svg",
+    "static/media/react-icon.svg": "/static/media/react-icon.f1484e295933af0e748d6a01b05a8361.svg",
+    "index.html": "/index.html",
+    "static/media/phone-icon.svg": "/static/media/phone-icon.91617f27ac814ef5f29b533ab3d256ec.svg",
+    "static/media/email-icon.svg": "/static/media/email-icon.a83578f914460e952501546655b76165.svg",
+    "static/media/html-icon.svg": "/static/media/html-icon.ebfc51e406097a90691ab82f1aa72db3.svg",
+    "static/media/css-icon.svg": "/static/media/css-icon.60a6c50d5a470990f63ee17a3bbd9178.svg",
+    "static/media/vscode-icon.svg": "/static/media/vscode-icon.3001bc63a45d488b7d2c332e4a2059ad.svg",
+    "static/media/mui.svg": "/static/media/mui.741a52f5f54e0b6073e48671571738ea.svg",
+    "static/media/js-icon.svg": "/static/media/js-icon.ffcf56dc5498f7bbbec802191c740e5f.svg",
+    "static/media/github-icon.svg": "/static/media/github-icon.c48bfb2a53c47ee345a50672e3d24e07.svg",
+    "static/media/external-link-icon.svg": "/static/media/external-link-icon.97075d22dfb22a8c8d253b264e892b5f.svg",
+    "main.43c86f1c.css.map": "/static/css/main.43c86f1c.css.map",
+    "main.3382256d.js.map": "/static/js/main.3382256d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.43c86f1c.css",
+    "static/js/main.3382256d.js"
+  ]
+}
