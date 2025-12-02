@@ -1,0 +1,15 @@
+export const typescriptRules = {
+  "@typescript-eslint/consistent-type-imports": 1,
+  "@typescript-eslint/indent": 0,
+  "@typescript-eslint/comma-dangle": 0,
+  "@typescript-eslint/no-unsafe-return": 0,
+  "@typescript-eslint/unbound-method": 0,
+  "@typescript-eslint/no-unsafe-argument": 0,
+  "@typescript-eslint/no-unsafe-assignment": 0,
+  "@typescript-eslint/no-unsafe-member-access": 0,
+  "@typescript-eslint/no-unsafe-call": 0,
+  "@typescript-eslint/no-unused-vars": 1,
+  "@typescript-eslint/no-misused-promises": 0,
+  "@typescript-eslint/no-shadow": 0,
+  "@typescript-eslint/no-explicit-any": 1,
+};
