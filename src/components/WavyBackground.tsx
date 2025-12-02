@@ -1,6 +1,32 @@
+import { useTheme } from '@/components/ThemeProvider';
 import './WavyBackground.css';
 
 const WavyBackground = () => {
+  const { theme } = useTheme();
+
+  // Determine actual theme (handle 'system' preference)
+  const isDark =
+    theme === 'dark' ||
+    (theme === 'system' &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+  // Theme-based colors
+  const colors = isDark
+    ? {
+        bgStart: '#050816',
+        bgEnd: '#0a0d1a',
+        lineStart: '#1a1a4e',
+        lineMid: '#2d2d6e',
+        lineEnd: '#3d3d8e'
+      }
+    : {
+        bgStart: '#f8fafc',
+        bgEnd: '#e2e8f0',
+        lineStart: '#c7d2fe',
+        lineMid: '#a5b4fc',
+        lineEnd: '#818cf8'
+      };
+
   return (
     <div className="wavy-background">
       <svg
@@ -10,20 +36,20 @@ const WavyBackground = () => {
       >
         <defs>
           <linearGradient id="baseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#050816" />
-            <stop offset="100%" stopColor="#0a0d1a" />
+            <stop offset="0%" stopColor={colors.bgStart} />
+            <stop offset="100%" stopColor={colors.bgEnd} />
           </linearGradient>
           <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#1a1a4e" />
-            <stop offset="50%" stopColor="#2d2d6e" />
-            <stop offset="100%" stopColor="#3d3d8e" />
+            <stop offset="0%" stopColor={colors.lineStart} />
+            <stop offset="50%" stopColor={colors.lineMid} />
+            <stop offset="100%" stopColor={colors.lineEnd} />
           </linearGradient>
         </defs>
 
         {/* Base background */}
         <rect width="100%" height="100%" fill="url(#baseGradient)" />
 
-        {/* Top-center flowing lines - shifted right */}
+        {/* Top-center flowing lines */}
         <path
           d="M 400 -50 Q 500 150, 600 400 Q 650 550, 580 750"
           fill="none"
@@ -130,7 +156,7 @@ const WavyBackground = () => {
           opacity="0.19"
         />
 
-        {/* Bottom-center flowing lines - shifted left */}
+        {/* Bottom-center flowing lines */}
         <path
           d="M 800 400 Q 1000 500, 1200 650 Q 1350 750, 1500 900"
           fill="none"
