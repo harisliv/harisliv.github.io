@@ -13,7 +13,9 @@ function App({ children }: { children?: React.ReactNode }) {
       <main>
         <Hero />
         <TechStack />
-        <EmploymentTimeline />
+        <section className="min-h-screen flex items-center justify-center py-24">
+          <EmploymentTimeline />
+        </section>
         {children}
       </main>
     </ThemeProvider>
