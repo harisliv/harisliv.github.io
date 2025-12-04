@@ -33,7 +33,7 @@ const Hero = () => (
           >
             Hi, I'm{' '}
             <span className="bg-gradient-to-r from-violet-500 via-purple-500 to-cyan-400 bg-clip-text text-transparent">
-              Your Name
+              Haris Livieratos
             </span>
           </motion.h1>
 
@@ -43,9 +43,11 @@ const Hero = () => (
             transition={{ delay: 0.4, duration: 0.6 }}
             className="mb-8 max-w-xl text-lg text-muted-foreground"
           >
-            A passionate developer crafting beautiful, performant web
-            experiences. I turn ideas into reality through clean code and
-            creative solutions.
+            Senior Software Engineer with 5 years of experience building
+            scalable web applications using React, TypeScript, and modern
+            JavaScript frameworks. Proven track record of leading development
+            teams, architecting monorepo solutions, and delivering
+            production-grade applications for enterprise clients.
           </motion.p>
 
           <motion.div
