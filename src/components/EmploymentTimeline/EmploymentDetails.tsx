@@ -8,64 +8,36 @@ export default function EmploymentDetails({
 }) {
   return (
     <div className="space-y-6">
-      {/* Description */}
-      <div>
-        <p className="text-sm text-muted-foreground leading-relaxed">
-          {entry.description}
-        </p>
-      </div>
-
-      {/* Responsibilities */}
-      {entry.details?.responsibilities &&
-        entry.details.responsibilities.length > 0 && (
-          <div>
-            <h4 className="font-semibold mb-2">Key Responsibilities</h4>
-            <ul className="space-y-2">
-              {entry.details.responsibilities.map((responsibility, idx) => (
-                <li
-                  key={idx}
-                  className="text-sm text-muted-foreground flex items-start gap-2"
-                >
-                  <span className="text-primary mt-1">•</span>
-                  <span>{responsibility}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-      {/* Achievements */}
-      {entry.details?.achievements && entry.details.achievements.length > 0 && (
+      {/* Project Name */}
+      {entry.projectName && (
         <div>
-          <h4 className="font-semibold mb-2">Key Achievements</h4>
+          <h4 className="font-semibold mb-2">{entry.projectName}</h4>
+        </div>
+      )}
+
+      {/* Project Description */}
+      {entry.projectDescription && (
+        <div>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            {entry.projectDescription}
+          </p>
+        </div>
+      )}
+
+      {/* Details - Bullet Points */}
+      {entry.details && entry.details.length > 0 && (
+        <div>
           <ul className="space-y-2">
-            {entry.details.achievements.map((achievement, idx) => (
+            {entry.details.map((detail, idx) => (
               <li
                 key={idx}
                 className="text-sm text-muted-foreground flex items-start gap-2"
               >
                 <span className="text-primary mt-1">•</span>
-                <span>{achievement}</span>
+                <span>{detail}</span>
               </li>
             ))}
           </ul>
-        </div>
-      )}
-
-      {/* Projects */}
-      {entry.details?.projects && entry.details.projects.length > 0 && (
-        <div>
-          <h4 className="font-semibold mb-2">Notable Projects</h4>
-          <div className="space-y-3">
-            {entry.details.projects.map((project, idx) => (
-              <div key={idx} className="p-3 rounded-lg border bg-muted/50">
-                <h5 className="font-medium mb-1">{project.name}</h5>
-                <p className="text-sm text-muted-foreground">
-                  {project.description}
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
       )}
 

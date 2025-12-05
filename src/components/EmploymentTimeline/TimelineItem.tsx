@@ -97,10 +97,19 @@ export function TimelineItem({
             </div>
           )}
 
-          {/* Description */}
-          <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-            {entry.description}
-          </p>
+          {/* Project Name */}
+          {entry.projectName && (
+            <h4 className="text-sm font-semibold text-foreground mb-2">
+              {entry.projectName}
+            </h4>
+          )}
+
+          {/* Short Description */}
+          {entry.shortDescription && (
+            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+              {entry.shortDescription}
+            </p>
+          )}
 
           {/* Technologies */}
           {entry.technologies && entry.technologies.length > 0 && (

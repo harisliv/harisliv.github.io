@@ -1,4 +1,4 @@
-export type Theme = 'dark' | 'light' | 'system';
+import type { Theme } from '@/types';
 
 export type ThemeProviderState = {
   theme: Theme;
