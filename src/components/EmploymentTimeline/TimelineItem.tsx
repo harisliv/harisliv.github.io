@@ -11,7 +11,7 @@ import type { EmploymentEntry } from './employmentData';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
-import { getTechIcon } from './techIconMap';
+import { getTechIcon } from '@/utils/techStack';
 import { Button } from '@/components/ui/button';
 import EmploymentDetails from './EmploymentDetails';
 
@@ -81,7 +81,7 @@ export function TimelineItem({
           {/* Company and Position */}
           <div className="mb-2">
             <h3 className="text-lg font-semibold text-foreground mb-1">
-              {entry.position}
+              {entry.hiringPosition}
             </h3>
             <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
               <Briefcase className="w-4 h-4" />
@@ -97,10 +97,10 @@ export function TimelineItem({
             </div>
           )}
 
-          {/* Project Name */}
-          {entry.projectName && (
+          {/* Project Name - Show first project if exists */}
+          {entry.projects && entry.projects.length > 0 && (
             <h4 className="text-sm font-semibold text-foreground mb-2">
-              {entry.projectName}
+              {entry.projects[0].name}
             </h4>
           )}
 
@@ -112,21 +112,27 @@ export function TimelineItem({
           )}
 
           {/* Technologies */}
-          {entry.technologies && entry.technologies.length > 0 && (
+          {entry.baseTechnologies && entry.baseTechnologies.length > 0 && (
             <div className="flex flex-wrap gap-1.5 mt-3 pt-3 border-t border-border mb-3">
-              {entry.technologies.map((tech) => {
+              {entry.baseTechnologies.map((tech) => {
                 const techInfo = getTechIcon(tech);
                 const Icon = techInfo?.Icon;
+                const techName = techInfo?.name || tech;
+                const color = techInfo?.color || '#6b7280';
 
                 return (
                   <span
                     key={tech}
-                    className="inline-flex items-center gap-1.5 px-2 py-0.5 text-xs rounded-md bg-muted text-muted-foreground"
+                    className="inline-flex items-center gap-2 px-3 py-1.5 text-xs rounded-md bg-muted text-muted-foreground"
                   >
                     {Icon && (
-                      <Icon className="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
+                      <Icon
+                        className="h-4 w-4 shrink-0"
+                        multicolor={false}
+                        style={{ color }}
+                      />
                     )}
-                    <span>{tech}</span>
+                    <span>{techName}</span>
                   </span>
                 );
               })}
@@ -152,22 +158,8 @@ export function TimelineItem({
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
               <Briefcase className="w-5 h-5" />
-              {entry.position} at {entry.company}
+              {entry.company}
             </DialogTitle>
-            <DialogDescription>
-              {new Date(entry.startDate).toLocaleDateString('en-US', {
-                month: 'long',
-                year: 'numeric'
-              })}{' '}
-              -{' '}
-              {isPresent
-                ? 'Present'
-                : new Date(entry.endDate).toLocaleDateString('en-US', {
-                    month: 'long',
-                    year: 'numeric'
-                  })}
-              {entry.location && ` • ${entry.location}`}
-            </DialogDescription>
           </DialogHeader>
           <EmploymentDetails entry={entry} />
         </DialogContent>

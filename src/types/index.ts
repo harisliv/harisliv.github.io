@@ -1,1 +1,2 @@
-export type Theme = 'dark' | 'light' | 'system';
+export * from './techStack';
+export * from './theme';

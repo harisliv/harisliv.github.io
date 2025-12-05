@@ -1,3 +1,4 @@
+import { useIconColor } from '@/hooks';
 import type { SVGProps } from 'react';
 
 export interface ZodProps extends SVGProps<SVGSVGElement> {
@@ -5,6 +6,7 @@ export interface ZodProps extends SVGProps<SVGSVGElement> {
 }
 
 export function Zod({ multicolor = true, ...props }: ZodProps) {
+  const color = useIconColor('#3E67B1', multicolor);
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -49,15 +51,15 @@ export function Zod({ multicolor = true, ...props }: ZodProps) {
       )}
       <g transform="translate(2 1.51)">
         <path
-          fill={multicolor ? '#18253F' : 'currentColor'}
+          fill={multicolor ? '#18253F' : color}
           d="M58.816 12.522h136.278l39.933 41.691l-112.989 126.553L16.957 54.213z"
         ></path>
         <path
-          fill={multicolor ? '#274D82' : 'currentColor'}
+          fill={multicolor ? '#274D82' : color}
           d="M149.427 150.875H96.013l-24.124-29.534l68.364-.002l.002-4.19h39.078z"
         ></path>
         <path
-          fill={multicolor ? '#274D82' : 'currentColor'}
+          fill={multicolor ? '#274D82' : color}
           d="M223.56 42.323L76.178 127.414l-19.226-24.052l114.099-65.877l-2.096-3.631l30.391-17.546zm-78.964-29.759L33.93 76.457L16.719 54.972l74.095-42.779z"
         ></path>
         {multicolor && (
@@ -68,7 +70,7 @@ export function Zod({ multicolor = true, ...props }: ZodProps) {
         )}
         {!multicolor && (
           <path
-            fill="currentColor"
+            fill={color}
             d="M200.42 0H53.63L0 53.355l121.76 146.624l9.714-10.9L252 53.857zm-5.362 12.562l39.84 41.6l-112.8 126.558L17 54.162l41.815-41.6z"
           ></path>
         )}

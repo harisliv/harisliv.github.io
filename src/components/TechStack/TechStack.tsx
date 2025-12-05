@@ -1,116 +1,14 @@
 import { motion } from 'framer-motion';
-import { mainTech, otherTech } from './techData';
-import type { TechItem } from './techData';
+import { TechCard } from './TechCard';
+import { techDataMap } from './techData';
+import { ETechEnum } from '@/types';
 
-// 3D Card for main technologies
-const TechCard = ({ item, index }: { item: TechItem; index: number }) => {
-  const { Icon } = item;
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.1, duration: 0.5 }}
-      viewport={{ once: true }}
-      className="group relative"
-      style={{ perspective: '1000px' }}
-    >
-      <motion.div
-        className="relative h-48 w-full rounded-2xl p-6 backdrop-blur-sm"
-        style={{
-          transformStyle: 'preserve-3d',
-          boxShadow: `0 0 40px ${item.color}15`,
-          background: `linear-gradient(135deg, ${item.color}20 0%, ${item.color}10 50%, ${item.color}05 100%)`
-        }}
-        animate={{
-          rotateX: [0, 8, -8, 6, -6, 4, -4, 2, -2, 0],
-          rotateY: [0, -8, 8, -6, 6, -4, 4, -2, 2, 0]
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: 'easeInOut',
-          delay: index * 0.6
-        }}
-      >
-        {/* Vivid inner glow effect - always visible */}
-        <div
-          className="absolute inset-0 rounded-2xl transition-all duration-300 group-hover:opacity-100"
-          style={{
-            background: `radial-gradient(ellipse at center, ${item.color}50 0%, ${item.color}25 30%, ${item.color}10 60%, transparent 85%)`,
-            opacity: 0.7
-          }}
-        />
-        {/* Inner shadow border glow - more pronounced */}
-        <div
-          className="absolute inset-[2px] rounded-2xl pointer-events-none transition-all duration-300 group-hover:opacity-100"
-          style={{
-            boxShadow: `inset 0 0 40px ${item.color}40, inset 0 0 80px ${item.color}20, inset 0 2px 4px ${item.color}30`,
-            opacity: 0.8
-          }}
-        />
-        {/* Additional corner glow accents */}
-        <div
-          className="absolute top-2 left-2 h-8 w-8 rounded-lg opacity-40 blur-sm transition-opacity duration-300 group-hover:opacity-60"
-          style={{
-            background: `radial-gradient(circle, ${item.color}80, transparent)`
-          }}
-        />
-        <div
-          className="absolute bottom-2 right-2 h-8 w-8 rounded-lg opacity-40 blur-sm transition-opacity duration-300 group-hover:opacity-60"
-          style={{
-            background: `radial-gradient(circle, ${item.color}80, transparent)`
-          }}
-        />
-
-        {/* Icon */}
-        <div className="relative flex h-full flex-col items-center justify-center gap-4">
-          <Icon
-            className="h-12 w-12 transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-lg"
-            style={{ color: item.color }}
-          />
-
-          <span className="text-lg font-semibold text-foreground">
-            {item.name}
-          </span>
-        </div>
-      </motion.div>
-    </motion.div>
-  );
-};
-
-// Simple badge for other technologies
-const TechBadge = ({ item, index }: { item: TechItem; index: number }) => {
-  const { Icon } = item;
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ delay: index * 0.03, duration: 0.3 }}
-      viewport={{ once: true }}
-      whileHover={{ scale: 1.05, y: -2 }}
-      className="flex cursor-default items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-sm transition-colors hover:border-white/20 hover:bg-white/10"
-    >
-      {item.needsWhiteBackground ? (
-        <div className="flex h-5 w-5 items-center justify-center rounded bg-white p-0.5">
-          <Icon
-            className="h-full w-full max-h-full max-w-full"
-            style={{ color: item.color }}
-          />
-        </div>
-      ) : (
-        <Icon
-          className="h-5 w-5 max-h-5 max-w-5"
-          style={{ color: item.color }}
-        />
-      )}
-      <span className="text-sm font-medium text-foreground/80">
-        {item.name}
-      </span>
-    </motion.div>
-  );
-};
+const mainTech = [
+  techDataMap[ETechEnum.typeScript],
+  techDataMap[ETechEnum.react],
+  techDataMap[ETechEnum.vite],
+  techDataMap[ETechEnum.nodeJs]
+];
 
 const TechStack = () => (
   <section id="tech-stack" className="relative w-full overflow-hidden py-24">
@@ -146,24 +44,6 @@ const TechStack = () => (
           <TechCard key={item.name} item={item} index={index} />
         ))}
       </div>
-
-      {/* Other Technologies Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-      >
-        <h3 className="mb-6 text-center text-lg font-medium text-muted-foreground">
-          And more...
-        </h3>
-
-        <div className="flex flex-wrap justify-center gap-3">
-          {otherTech.map((item, index) => (
-            <TechBadge key={item.name} item={item} index={index} />
-          ))}
-        </div>
-      </motion.div>
     </div>
   </section>
 );

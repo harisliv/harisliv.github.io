@@ -1,175 +1,205 @@
-// Tech stack data using react-icons and custom SVGs
-// Icons from: https://react-icons.github.io/react-icons/
-
-import type { IconType } from 'react-icons';
 import {
-  SiTypescript,
-  SiReact,
-  SiNodedotjs,
-  SiJavascript,
-  SiNextdotjs,
-  SiPostgresql,
-  SiNestjs,
-  SiExpress,
-  SiReactquery,
-  SiRedux,
-  SiJest,
-  SiTestinglibrary,
-  SiMui,
-  SiTailwindcss,
-  SiPnpm,
-  SiStorybook
-} from 'react-icons/si';
-import { FaTable, FaProjectDiagram, FaPlug } from 'react-icons/fa';
-import { Vite } from '@/icons/Vite';
-import { Zod } from '@/icons/Zod';
-import { ReactRouter } from '@/icons/ReactRouter';
-import { TurborepoIcon } from '@/icons/Turborepo';
-import { ReactHookForm } from '@/icons/ReactHookForm';
-import { Zustand } from '@/icons/Zustand';
+  NodeJs,
+  React,
+  TypeScript,
+  JavaScript,
+  NextJs,
+  PostgreSQL,
+  NestJS,
+  Express,
+  TanStackQuery,
+  Redux,
+  Jest,
+  TestingLibrary,
+  MUI,
+  TailwindCSS,
+  Pnpm,
+  Storybook,
+  WebSockets,
+  ReactFlow,
+  TanstackTable,
+  CSS,
+  WebWorkers,
+  Solidity,
+  EthersJs,
+  Vite,
+  Zod,
+  ReactRouter,
+  Turborepo,
+  ReactHookForm,
+  Zustand
+} from '@/icons';
+import { ETechEnum, type ITechIconProps, type TTechEnum } from '@/types';
 
-export interface TechItem {
-  name: string;
-  color: string;
-  Icon:
-    | IconType
-    | React.ComponentType<{ className?: string; style?: React.CSSProperties }>;
-  needsWhiteBackground?: boolean;
-}
-
-// Main technologies - featured with 3D cards
-export const mainTech: TechItem[] = [
-  {
+export const techDataMap: Record<TTechEnum, ITechIconProps> = {
+  [ETechEnum.typeScript]: {
+    Icon: TypeScript,
     name: 'TypeScript',
-    color: '#3178C6',
-    Icon: SiTypescript
+    color: '#3178C6'
   },
-  {
+  [ETechEnum.react]: {
+    Icon: React,
     name: 'React',
-    color: '#61DAFB',
-    Icon: SiReact
+    color: '#61DAFB'
   },
-  {
-    name: 'Vite',
-    color: '#646CFF',
-    Icon: Vite
-  },
-  {
+  [ETechEnum.nodeJs]: {
+    Icon: NodeJs,
     name: 'Node.js',
-    color: '#5FA04E',
-    Icon: SiNodedotjs
-  }
-];
-
-// Other technologies - displayed as badges
-export const otherTech: TechItem[] = [
-  {
+    color: '#5FA04E'
+  },
+  [ETechEnum.javaScript]: {
+    Icon: JavaScript,
     name: 'JavaScript',
-    color: '#F7DF1E',
-    Icon: SiJavascript
+    color: '#F7DF1E'
   },
-  {
+  [ETechEnum.nextJs]: {
+    Icon: NextJs,
     name: 'Next.js',
-    color: '#000000',
-    Icon: SiNextdotjs,
-    needsWhiteBackground: true
+    color: '#000000'
   },
-  {
+  [ETechEnum.sql]: {
+    Icon: PostgreSQL,
     name: 'SQL',
-    color: '#4479A1',
-    Icon: SiPostgresql // Using PostgreSQL icon as SQL representation
+    color: '#4479A1'
   },
-  {
+  [ETechEnum.postgreSQL]: {
+    Icon: PostgreSQL,
+    name: 'PostgreSQL',
+    color: '#4479A1'
+  },
+  [ETechEnum.nestJS]: {
+    Icon: NestJS,
     name: 'NestJS',
-    color: '#E0234E',
-    Icon: SiNestjs
+    color: '#E0234E'
   },
-  {
+  [ETechEnum.nestJs]: {
+    Icon: NestJS,
+    name: 'Nest.js',
+    color: '#E0234E'
+  },
+  [ETechEnum.express]: {
+    Icon: Express,
     name: 'Express',
-    color: '#000000',
-    Icon: SiExpress,
-    needsWhiteBackground: true
+    color: '#000000'
   },
-  {
+  [ETechEnum.expressJs]: {
+    Icon: Express,
+    name: 'Express.js',
+    color: '#000000'
+  },
+  [ETechEnum.tanStackQuery]: {
+    Icon: TanStackQuery,
     name: 'TanStack Query',
-    color: '#FF4154',
-    Icon: SiReactquery
+    color: '#FF4154'
   },
-  {
+  [ETechEnum.reactQuery]: {
+    Icon: TanStackQuery,
+    name: 'React Query',
+    color: '#FF4154'
+  },
+  [ETechEnum.redux]: {
+    Icon: Redux,
     name: 'Redux',
-    color: '#764ABC',
-    Icon: SiRedux
+    color: '#764ABC'
   },
-  {
+  [ETechEnum.reduxToolkit]: {
+    Icon: Redux,
+    name: 'Redux Toolkit',
+    color: '#764ABC'
+  },
+  [ETechEnum.zustand]: {
+    Icon: Zustand,
     name: 'Zustand',
-    color: '#443E38',
-    Icon: Zustand
+    color: '#443E38'
   },
-  {
+  [ETechEnum.jest]: {
+    Icon: Jest,
     name: 'Jest',
-    color: '#C21325',
-    Icon: SiJest
+    color: '#C21325'
   },
-  {
+  [ETechEnum.reactRouter]: {
+    Icon: ReactRouter,
     name: 'React Router',
-    color: '#CA4245',
-    Icon: ReactRouter
+    color: '#CA4245'
   },
-  {
+  [ETechEnum.testingLibrary]: {
+    Icon: TestingLibrary,
     name: 'Testing Library',
-    color: '#E33332',
-    Icon: SiTestinglibrary
+    color: '#E33332'
   },
-  {
+  [ETechEnum.mui]: {
+    Icon: MUI,
     name: 'MUI',
-    color: '#007FFF',
-    Icon: SiMui
+    color: '#007FFF'
   },
-  {
+  [ETechEnum.tailwindCSS]: {
+    Icon: TailwindCSS,
     name: 'Tailwind CSS',
-    color: '#06B6D4',
-    Icon: SiTailwindcss
+    color: '#06B6D4'
   },
-  {
+  [ETechEnum.reactHookForm]: {
+    Icon: ReactHookForm,
     name: 'React Hook Form',
-    color: '#EC5990',
-    Icon: ReactHookForm
+    color: '#EC5990'
   },
-  {
+  [ETechEnum.zod]: {
+    Icon: Zod,
     name: 'Zod',
-    color: '#3E67B1',
-    Icon: Zod
+    color: '#3E67B1'
   },
-  {
+  [ETechEnum.pnpm]: {
+    Icon: Pnpm,
     name: 'pnpm',
-    color: '#F69220',
-    Icon: SiPnpm
+    color: '#F69220'
   },
-  {
+  [ETechEnum.turborepo]: {
+    Icon: Turborepo,
     name: 'Turborepo',
-    color: '#EF4444',
-    Icon: TurborepoIcon
+    color: '#EF4444'
   },
-  {
+  [ETechEnum.storybook]: {
+    Icon: Storybook,
     name: 'Storybook',
-    color: '#FF4785',
-    Icon: SiStorybook
+    color: '#FF4785'
   },
-  {
+  [ETechEnum.webSockets]: {
+    Icon: WebSockets,
     name: 'WebSockets',
-    color: '#010101',
-    Icon: FaPlug, // Using plug icon as WebSocket alternative
-    needsWhiteBackground: true
+    color: '#010101'
   },
-  {
+  [ETechEnum.reactFlow]: {
+    Icon: ReactFlow,
     name: 'React Flow',
-    color: '#FF0072',
-    Icon: FaProjectDiagram, // Using diagram icon as React Flow alternative
-    needsWhiteBackground: true
+    color: '#FF0072'
   },
-  {
+  [ETechEnum.tanstackTable]: {
+    Icon: TanstackTable,
     name: 'Tanstack Table',
-    color: '#FF4154',
-    Icon: FaTable // Using table icon for Tanstack Table
+    color: '#FF4154'
+  },
+  [ETechEnum.css]: {
+    Icon: CSS,
+    name: 'CSS',
+    color: '#1572B6'
+  },
+  [ETechEnum.vite]: {
+    Icon: Vite,
+    name: 'Vite',
+    color: '#646CFF'
+  },
+  [ETechEnum.webWorkers]: {
+    Icon: WebWorkers,
+    name: 'Web Workers',
+    color: '#4A90E2'
+  },
+  [ETechEnum.solidity]: {
+    Icon: Solidity,
+    name: 'Solidity',
+    color: '#363636'
+  },
+  [ETechEnum.ethersJs]: {
+    Icon: EthersJs,
+    name: 'ethers.js',
+    color: '#627EEA'
   }
-];
+};
