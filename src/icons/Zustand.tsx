@@ -1,4 +1,5 @@
 import { useIconColor } from '@/hooks';
+import type { SVGProps } from 'react';
 
 import { FaCode } from 'react-icons/fa';
 
