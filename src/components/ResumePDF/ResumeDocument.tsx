@@ -127,43 +127,14 @@ const formatDate = (dateStr: string): string => {
 
 // Create polished, compact styles with different fonts
 
-interface ResumeDocumentProps {
+interface IResumeDocumentProps {
   employmentHistory: EmploymentEntry[];
 }
 
-const ResumeDocument: React.FC<ResumeDocumentProps> = ({
+const ResumeDocument: React.FC<IResumeDocumentProps> = ({
   employmentHistory
 }) => {
-  // Group NTT DATA entries together
   const styles = createStyles();
-  const groupedHistory: (
-    | EmploymentEntry
-    | { company: string; entries: EmploymentEntry[] }
-  )[] = [];
-  let currentGroup: EmploymentEntry[] | null = null;
-  let currentCompany = '';
-
-  employmentHistory.forEach((entry) => {
-    if (entry.company === currentCompany && currentGroup) {
-      currentGroup.push(entry);
-    } else {
-      if (currentGroup) {
-        groupedHistory.push({ company: currentCompany, entries: currentGroup });
-      }
-      if (entry.company === 'NTT DATA Europe & Latam') {
-        currentGroup = [entry];
-        currentCompany = entry.company;
-      } else {
-        groupedHistory.push(entry);
-        currentGroup = null;
-        currentCompany = '';
-      }
-    }
-  });
-
-  if (currentGroup) {
-    groupedHistory.push({ company: currentCompany, entries: currentGroup });
-  }
 
   return (
     <Document>
@@ -218,98 +189,44 @@ const ResumeDocument: React.FC<ResumeDocumentProps> = ({
         {/* Employment History */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Employment History</Text>
-          {groupedHistory.map((item, idx) => {
-            if ('entries' in item) {
-              // Grouped NTT DATA entries
-              const firstEntry = item.entries[0];
-              const lastEntry = item.entries[item.entries.length - 1];
-              const startDate = formatDate(lastEntry.startDate);
-              const endDate =
-                firstEntry.endDate === 'Present'
-                  ? 'Current'
-                  : formatDate(firstEntry.endDate);
+          {employmentHistory.map((entry) => (
+            <View key={entry.id} style={styles.employmentItem}>
+              <View style={styles.employmentHeader}>
+                <View style={styles.companyRow}>
+                  <Text style={styles.company}>{entry.company}</Text>
+                  <Text style={styles.dateRange}>
+                    {formatDate(entry.startDate)} -{' '}
+                    {entry.endDate === 'Present'
+                      ? 'Current'
+                      : formatDate(entry.endDate)}
+                  </Text>
+                </View>
+                <Text style={styles.position}>{entry.hiringPosition}</Text>
+              </View>
+              {entry.projects && entry.projects.length > 0 && (
+                <View>
+                  {entry.projects.map((project, projectIdx) => (
+                    <View key={projectIdx}>
+                      <View style={styles.projectHeader}>
+                        <Text style={styles.projectName}>{project.name}</Text>
+                      </View>
 
-              return (
-                <View key={`group-${idx}`} style={styles.employmentItem}>
-                  <View style={styles.employmentHeader}>
-                    <View style={styles.companyRow}>
-                      <Text style={styles.company}>{item.company}</Text>
-                      <Text style={styles.dateRange}>
-                        {startDate} - {endDate}
-                      </Text>
-                    </View>
-                    <Text style={styles.position}>{firstEntry.position}</Text>
-                  </View>
-
-                  {item.entries.map((entry) => (
-                    <View key={entry.id}>
-                      {entry.projectName && (
-                        <View style={styles.projectHeader}>
-                          <Text style={styles.projectName}>
-                            Project ({formatDate(entry.startDate)} -{' '}
-                            {entry.endDate === 'Present'
-                              ? 'Current'
-                              : formatDate(entry.endDate)}
-                            ): {entry.projectName}
-                          </Text>
-                          {entry.projectDescription && (
-                            <Text style={styles.projectDescription}>
-                              {entry.projectDescription}
-                            </Text>
-                          )}
-                        </View>
-                      )}
-
-                      {entry.details && entry.details.length > 0 && (
+                      {project.details && project.details.length > 0 && (
                         <View style={styles.detailsList}>
-                          {entry.details.map((detail, detailIdx) => (
-                            <Text key={detailIdx} style={styles.detailItem}>
-                              • {detail}
-                            </Text>
+                          {project.details.map((detail, detailIdx) => (
+                            <View key={detailIdx} style={styles.detailItem}>
+                              <Text style={styles.bulletPoint}>{'\u2022'}</Text>
+                              <Text style={styles.detailText}>{detail}</Text>
+                            </View>
                           ))}
                         </View>
                       )}
                     </View>
                   ))}
                 </View>
-              );
-            } else {
-              // Regular entry
-              const entry = item as EmploymentEntry;
-              return (
-                <View key={entry.id} style={styles.employmentItem}>
-                  <View style={styles.employmentHeader}>
-                    <View style={styles.companyRow}>
-                      <Text style={styles.company}>{entry.company}</Text>
-                      <Text style={styles.dateRange}>
-                        {formatDate(entry.startDate)} -{' '}
-                        {entry.endDate === 'Present'
-                          ? 'Current'
-                          : formatDate(entry.endDate)}
-                      </Text>
-                    </View>
-                    <Text style={styles.position}>{entry.position}</Text>
-                  </View>
-
-                  {entry.projectDescription && !entry.projectName && (
-                    <Text style={styles.projectDescription}>
-                      {entry.projectDescription}
-                    </Text>
-                  )}
-
-                  {entry.details && entry.details.length > 0 && (
-                    <View style={styles.detailsList}>
-                      {entry.details.map((detail, detailIdx) => (
-                        <Text key={detailIdx} style={styles.detailItem}>
-                          • {detail}
-                        </Text>
-                      ))}
-                    </View>
-                  )}
-                </View>
-              );
-            }
-          })}
+              )}
+            </View>
+          ))}
         </View>
 
         {/* Education - At the Bottom */}

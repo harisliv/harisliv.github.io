@@ -1,5 +1,6 @@
 import type { EmploymentEntry } from './employmentData';
 import { getTechIcon } from '@/utils/techStack';
+import { TechBadge } from './TechBadge';
 
 export default function EmploymentDetails({
   entry
@@ -20,11 +21,9 @@ export default function EmploymentDetails({
               {/* Project Name */}
               <div>
                 <h5 className="font-semibold text-lg mb-1">{project.name}</h5>
-                {project.position && (
-                  <p className="text-sm text-muted-foreground mb-2">
-                    {project.position}
-                  </p>
-                )}
+                <p className="text-sm text-muted-foreground mb-2">
+                  {project?.position || entry.hiringPosition}
+                </p>
               </div>
 
               {/* Project Description */}
@@ -60,24 +59,7 @@ export default function EmploymentDetails({
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => {
                       const techInfo = getTechIcon(tech);
-                      const Icon = techInfo.Icon;
-                      const techName = techInfo.name;
-                      const color = techInfo.color;
-
-                      return (
-                        <span
-                          key={tech}
-                          className="inline-flex items-center gap-2 px-4 py-2 text-xs rounded-md font-medium"
-                          style={{
-                            backgroundColor: `${color}15`,
-                            color: color,
-                            border: `1px solid ${color}30`
-                          }}
-                        >
-                          <Icon multicolor={true} />
-                          <span>{techName}</span>
-                        </span>
-                      );
+                      return <TechBadge item={techInfo} multicolor={true} />;
                     })}
                   </div>
                 </div>

@@ -14,6 +14,7 @@ import { motion } from 'framer-motion';
 import { getTechIcon } from '@/utils/techStack';
 import { Button } from '@/components/ui/button';
 import EmploymentDetails from './EmploymentDetails';
+import { TechBadge } from './TechBadge';
 
 export function TimelineItem({
   entry,
@@ -116,25 +117,7 @@ export function TimelineItem({
             <div className="flex flex-wrap gap-1.5 mt-3 pt-3 border-t border-border mb-3">
               {entry.baseTechnologies.map((tech) => {
                 const techInfo = getTechIcon(tech);
-                const Icon = techInfo?.Icon;
-                const techName = techInfo?.name || tech;
-                const color = techInfo?.color || '#6b7280';
-
-                return (
-                  <span
-                    key={tech}
-                    className="inline-flex items-center gap-2 px-3 py-1.5 text-xs rounded-md bg-muted text-muted-foreground"
-                  >
-                    {Icon && (
-                      <Icon
-                        className="h-4 w-4 shrink-0"
-                        multicolor={false}
-                        style={{ color }}
-                      />
-                    )}
-                    <span>{techName}</span>
-                  </span>
-                );
+                return <TechBadge item={techInfo} multicolor={true} />;
               })}
             </div>
           )}

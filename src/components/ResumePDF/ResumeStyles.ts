@@ -150,15 +150,24 @@ export const createStyles = () =>
       fontFamily: 'RobotoCondensed'
     },
     detailsList: {
-      marginTop: 2,
-      paddingLeft: 4
+      marginTop: 2
     },
     detailItem: {
+      flexDirection: 'row',
+      marginBottom: 1.2,
+      paddingLeft: 6
+    },
+    bulletPoint: {
+      fontSize: 12,
+      color: '#334155',
+      width: 12,
+      fontFamily: 'RobotoCondensed'
+    },
+    detailText: {
       fontSize: NORMAL_FONT_SIZE,
       color: '#334155',
-      marginBottom: 1.2,
       lineHeight: 1.35,
-      paddingLeft: 6,
+      flex: 1,
       fontFamily: 'RobotoCondensed'
     },
     // Divider

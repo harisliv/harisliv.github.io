@@ -55,7 +55,7 @@ export const techDataMap: Record<TTechEnum, ITechIconProps> = {
   [ETechEnum.nextJs]: {
     Icon: NextJs,
     name: 'Next.js',
-    color: '#000000'
+    color: '#dfdfdf'
   },
   [ETechEnum.sql]: {
     Icon: PostgreSQL,

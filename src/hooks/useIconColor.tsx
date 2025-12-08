@@ -4,7 +4,7 @@ export function useIconColor(color: string, multicolor: boolean) {
   const { theme } = useTheme();
   let iconColor = color;
   if (!multicolor) {
-    iconColor = theme === 'dark' ? '#111519' : '#c9c9c9';
+    iconColor = theme === 'dark' ? '#c9c9c9' : '#111519';
   }
   return iconColor;
 }

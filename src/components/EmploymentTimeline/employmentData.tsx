@@ -11,7 +11,7 @@ export interface EmploymentEntry {
   location?: string;
   projects?: {
     name: string;
-    position: string;
+    position?: string;
     description: string;
     technologies: string[];
     details: string[];
@@ -50,7 +50,8 @@ export const employmentHistory: EmploymentEntry[] = [
           ETechEnum.zod,
           ETechEnum.reactRouter,
           ETechEnum.mui,
-          ETechEnum.tanstackTable
+          ETechEnum.tanstackTable,
+          ETechEnum.zustand
         ],
         details: [
           'Promoted to Front End Lead, overseeing a team of three developers.',
@@ -116,7 +117,6 @@ export const employmentHistory: EmploymentEntry[] = [
     projects: [
       {
         name: 'Grow Design platform',
-        position: 'Full Stack Engineer',
         description:
           'End to end platform for creating and managing marketing campaigns.',
         technologies: [

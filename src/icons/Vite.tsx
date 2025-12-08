@@ -1,5 +1,6 @@
 import { useIconColor } from '@/hooks';
 import type { SVGProps } from 'react';
+import { SiVite } from 'react-icons/si';
 
 export interface ViteProps extends SVGProps<SVGSVGElement> {
   multicolor?: boolean;
@@ -7,6 +8,10 @@ export interface ViteProps extends SVGProps<SVGSVGElement> {
 
 export function Vite({ multicolor = true, ...props }: ViteProps) {
   const color = useIconColor('#646CFF', multicolor);
+
+  if (!multicolor) {
+    return <SiVite color={color} {...props} />;
+  }
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
