@@ -12,7 +12,6 @@ export const TechEnumSchema = z.enum([
   'postgreSQL',
   'nestJS',
   'nestJs',
-  'express',
   'expressJs',
   'tanStackQuery',
   'reactQuery',

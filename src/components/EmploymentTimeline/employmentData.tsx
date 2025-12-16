@@ -41,8 +41,6 @@ export const employmentHistory: EmploymentEntry[] = [
         description:
           'The UNFCCC ISS platform is a project for managing and reporting climate initiatives.',
         technologies: [
-          ETechEnum.react,
-          ETechEnum.typeScript,
           ETechEnum.pnpm,
           ETechEnum.turborepo,
           ETechEnum.storybook,
@@ -83,11 +81,8 @@ export const employmentHistory: EmploymentEntry[] = [
         description:
           'UNFCCC ETF is a platform for global reporting on greenhouse gas emissions and energy consumption. It is built in Vite with React and TypeScript.',
         technologies: [
-          ETechEnum.react,
-          ETechEnum.typeScript,
           ETechEnum.webSockets,
           ETechEnum.webWorkers,
-          ETechEnum.vite,
           ETechEnum.mui
         ],
         details: [
@@ -120,11 +115,7 @@ export const employmentHistory: EmploymentEntry[] = [
         description:
           'End to end platform for creating and managing marketing campaigns.',
         technologies: [
-          ETechEnum.nextJs,
           ETechEnum.expressJs,
-          ETechEnum.react,
-          ETechEnum.typeScript,
-          ETechEnum.reduxToolkit,
           ETechEnum.reactQuery,
           ETechEnum.reactFlow
         ],

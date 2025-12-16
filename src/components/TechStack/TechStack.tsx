@@ -11,7 +11,7 @@ const mainTech = [
 ];
 
 const TechStack = () => (
-  <section id="tech-stack" className="relative w-full overflow-hidden py-24">
+  <section id="tech-stack" className="relative w-full overflow-hidden py-12">
     <div className="relative z-10 mx-auto max-w-6xl px-6">
       {/* Section Header */}
       <motion.div

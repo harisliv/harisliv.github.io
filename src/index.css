@@ -121,3 +121,46 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  /* Custom scrollbar styles that respond to theme */
+  .scrollbar-theme {
+    scrollbar-width: thin;
+    scrollbar-color: oklch(0.7 0.02 261.325) oklch(0.967 0.003 264.542);
+  }
+
+  .dark .scrollbar-theme {
+    scrollbar-color: oklch(0.3 0.02 261.325) oklch(0.21 0.034 264.665);
+  }
+
+  .scrollbar-theme::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scrollbar-theme::-webkit-scrollbar-track {
+    background: oklch(0.967 0.003 264.542);
+    border-radius: 4px;
+  }
+
+  .scrollbar-theme::-webkit-scrollbar-thumb {
+    background: oklch(0.7 0.02 261.325);
+    border-radius: 4px;
+  }
+
+  .scrollbar-theme::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.6 0.02 261.325);
+  }
+
+  .dark .scrollbar-theme::-webkit-scrollbar-track {
+    background: oklch(0.21 0.034 264.665);
+  }
+
+  .dark .scrollbar-theme::-webkit-scrollbar-thumb {
+    background: oklch(0.3 0.02 261.325);
+  }
+
+  .dark .scrollbar-theme::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.4 0.02 261.325);
+  }
+}

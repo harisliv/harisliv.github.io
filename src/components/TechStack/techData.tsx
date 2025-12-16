@@ -77,15 +77,10 @@ export const techDataMap: Record<TTechEnum, ITechIconProps> = {
     name: 'Nest.js',
     color: '#E0234E'
   },
-  [ETechEnum.express]: {
-    Icon: Express,
-    name: 'Express',
-    color: '#000000'
-  },
   [ETechEnum.expressJs]: {
     Icon: Express,
     name: 'Express.js',
-    color: '#000000'
+    color: '#dfdfdf'
   },
   [ETechEnum.tanStackQuery]: {
     Icon: TanStackQuery,
@@ -110,7 +105,7 @@ export const techDataMap: Record<TTechEnum, ITechIconProps> = {
   [ETechEnum.zustand]: {
     Icon: Zustand,
     name: 'Zustand',
-    color: '#443E38'
+    color: '#c4a289'
   },
   [ETechEnum.jest]: {
     Icon: Jest,
