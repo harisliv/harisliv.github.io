@@ -25,7 +25,8 @@ export const projects: ProjectEntry[] = [
       ETechEnum.react,
       ETechEnum.typeScript,
       ETechEnum.tailwindCSS,
-      ETechEnum.vite
+      ETechEnum.vite,
+      ETechEnum.shadcn
     ],
     imageUrl: '/aiform.webp',
     githubUrl: `${import.meta.env.VITE_GITHUB_BASE_URL}/harisliv.github.io`,
@@ -33,28 +34,31 @@ export const projects: ProjectEntry[] = [
     highlights: [
       'Dark mode support with theme switching',
       'Smooth animations and transitions',
-      'Responsive design for all devices'
+      'Responsive design for all devices',
+      'Shadcn UI library for consistent UI'
     ],
     featured: true
   },
   {
     id: '2',
-    name: 'Course ',
+    name: 'Course Management System',
     description:
-      'Full-stack e-commerce solution with user authentication and payment integration.',
+      'Slice is an educational platform that enables instructors and administrators to manage course profiles, track student progress, create assignments, and generate comprehensive reports.',
     technologies: [
       ETechEnum.react,
-      ETechEnum.nodeJs,
-      ETechEnum.postgreSQL,
-      ETechEnum.typeScript
+      ETechEnum.vite,
+      ETechEnum.mui,
+      ETechEnum.typeScript,
+      ETechEnum.tanStackQuery,
+      ETechEnum.tanstackTable
     ],
-    imageUrl: '/aiform.webp',
+    imageUrl: '/aiiss.webp',
     githubUrl: `${import.meta.env.VITE_GITHUB_BASE_URL}`,
     highlights: [
-      'User authentication and authorization',
-      'Payment gateway integration',
-      'Shopping cart and checkout flow',
-      'Admin dashboard for product management'
+      'Multi-step forms with 4 major sections and nested tabs',
+      'Track enrolled and registered students with comprehensive data tables',
+      'Generate periodic reports with PDF export capabilities',
+      'Comprehensive client-side validation using Zod schemas'
     ],
     featured: true
   },
@@ -69,7 +73,7 @@ export const projects: ProjectEntry[] = [
       ETechEnum.reactHookForm,
       ETechEnum.zod
     ],
-    imageUrl: '/aiform.webp',
+    imageUrl: '/aiportfolio.webp',
     githubUrl: `${import.meta.env.VITE_GITHUB_BASE_URL}`,
     highlights: [
       'Real-time collaboration features',

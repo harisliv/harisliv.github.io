@@ -1,55 +1,10 @@
 import { motion } from 'framer-motion';
-import { useEffect, useRef } from 'react';
+import Typewriter from 'typewriter-effect';
 import Scene from './Scene';
 
 const Hero = () => {
-  const heroRef = useRef<HTMLElement>(null);
-  const isScrolling = useRef(false);
-
-  useEffect(() => {
-    const heroElement = heroRef.current;
-    if (!heroElement) return;
-
-    const handleWheel = (e: WheelEvent) => {
-      // Only handle scroll when Hero is in view
-      const rect = heroElement.getBoundingClientRect();
-      const isHeroVisible =
-        rect.top <= 0 && rect.bottom > window.innerHeight * 0.5;
-
-      if (!isHeroVisible || isScrolling.current) return;
-
-      // Check if scrolling down
-      if (e.deltaY > 0) {
-        const techStackSection = document.getElementById('tech-stack');
-        if (techStackSection) {
-          isScrolling.current = true;
-          e.preventDefault();
-
-          techStackSection.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-
-          // Reset flag after scroll completes
-          setTimeout(() => {
-            isScrolling.current = false;
-          }, 1000);
-        }
-      }
-    };
-
-    window.addEventListener('wheel', handleWheel, { passive: false });
-
-    return () => {
-      window.removeEventListener('wheel', handleWheel);
-    };
-  }, []);
-
   return (
-    <section
-      ref={heroRef}
-      className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden pt-20"
-    >
+    <section className="relative flex w-full flex-col items-center justify-center overflow-hidden pt-20">
       {/* Text Content */}
       <div className="z-10 mx-auto w-full max-w-7xl px-6 text-center lg:text-left">
         <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12">
@@ -79,8 +34,15 @@ const Hero = () => {
               className="mb-6 text-4xl font-bold leading-tight text-foreground sm:text-5xl lg:text-6xl"
             >
               Hi, I'm{' '}
-              <span className="bg-gradient-to-r from-violet-500 via-purple-500 to-cyan-400 bg-clip-text text-transparent">
-                Haris Livieratos
+              <span className="bg-gradient-to-r from-violet-500 via-purple-500 to-cyan-400 bg-clip-text text-amber-100">
+                <Typewriter
+                  options={{
+                    strings: ['Haris Livieratos'],
+                    autoStart: true,
+                    loop: true,
+                    deleteSpeed: 'natural'
+                  }}
+                />
               </span>
             </motion.h1>
 
@@ -90,11 +52,10 @@ const Hero = () => {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="mb-8 max-w-xl text-lg text-muted-foreground"
             >
-              Senior Software Engineer with 5 years of experience building
-              scalable web applications using React, TypeScript, and modern
-              JavaScript frameworks. Proven track record of leading development
-              teams, architecting monorepo solutions, and delivering
-              production-grade applications for enterprise clients.
+              Senior Software Engineer with 5 years of experience in building
+              dynamic web applications. Proven ability to deliver innovative
+              solutions, manage projects independently, and excel in
+              collaborative environments under tight deadlines.
             </motion.p>
 
             <motion.div
@@ -104,7 +65,7 @@ const Hero = () => {
               className="flex flex-wrap justify-center gap-4 lg:justify-start"
             >
               <a
-                href="#work"
+                href="#employment-timeline"
                 className="rounded-lg bg-gradient-to-r from-violet-600 to-purple-600 px-6 py-3 font-medium text-white transition-all hover:scale-105 hover:shadow-lg hover:shadow-violet-500/25"
               >
                 View My Work
@@ -129,33 +90,6 @@ const Hero = () => {
           </motion.div>
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 0.6 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-          className="flex flex-col items-center gap-2"
-        >
-          <span className="text-xs text-muted-foreground">Scroll Down</span>
-          <div className="flex h-10 w-6 items-start justify-center rounded-full border-2 border-violet-500/30 p-1">
-            <motion.div
-              animate={{ y: [0, 12, 0] }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                ease: 'easeInOut'
-              }}
-              className="h-2 w-1 rounded-full bg-violet-500"
-            />
-          </div>
-        </motion.div>
-      </motion.div>
     </section>
   );
 };

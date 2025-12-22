@@ -27,7 +27,8 @@ import {
   ReactRouter,
   Turborepo,
   ReactHookForm,
-  Zustand
+  Zustand,
+  Shadcn
 } from '@/icons';
 import { ETechEnum, type ITechIconProps, type TTechEnum } from '@/types';
 
@@ -196,5 +197,10 @@ export const techDataMap: Record<TTechEnum, ITechIconProps> = {
     Icon: EthersJs,
     name: 'ethers.js',
     color: '#627EEA'
+  },
+  [ETechEnum.shadcn]: {
+    Icon: Shadcn,
+    name: 'Shadcn',
+    color: '#000000'
   }
 };

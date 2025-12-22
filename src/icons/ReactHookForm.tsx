@@ -1,4 +1,3 @@
-import { useIconColor } from '@/hooks';
 import type { SVGProps } from 'react';
 
 export function ReactHookForm({ ...props }: SVGProps<SVGSVGElement>) {

@@ -81,7 +81,7 @@ export function TimelineItem({
 
           {/* Company and Position */}
           <div className="mb-2">
-            <h3 className="text-lg font-semibold text-foreground mb-1">
+            <h3 className="text-lg font-semibold text-indigo-500 mb-4">
               {entry.hiringPosition}
             </h3>
             <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
@@ -96,13 +96,6 @@ export function TimelineItem({
               <MapPin className="w-3.5 h-3.5" />
               <span>{entry.location}</span>
             </div>
-          )}
-
-          {/* Project Name - Show first project if exists */}
-          {entry.projects && entry.projects.length > 0 && (
-            <h4 className="text-sm font-semibold text-foreground mb-2">
-              {entry.projects[0].name}
-            </h4>
           )}
 
           {/* Short Description */}

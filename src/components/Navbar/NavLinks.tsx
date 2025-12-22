@@ -16,7 +16,9 @@ interface NavLinksProps {
 
 const defaultNavItems: NavItem[] = [
   { href: '#about', label: 'About' },
-  { href: '#work', label: 'Work' },
+  { href: '#tech-stack', label: 'Tech Stack' },
+  { href: '#employment-timeline', label: 'Employment History' },
+  { href: '#projects', label: 'Projects' },
   { href: '#contact', label: 'Contact' }
 ];
 
@@ -28,7 +30,6 @@ const NavLinks = ({ items = defaultNavItems }: NavLinksProps) => (
           {item.label}
         </NavLink>
       ))}
-      <DownloadResumeButton />
     </NavigationMenuList>
   </NavigationMenu>
 );

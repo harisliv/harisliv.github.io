@@ -15,6 +15,7 @@ export { ReactFlow } from './ReactFlow';
 export { ReactHookForm } from './ReactHookForm';
 export { ReactRouter } from './ReactRouter';
 export { Redux } from './Redux';
+export { Shadcn } from './Shadcn';
 export { Solidity } from './Solidity';
 export { Storybook } from './Storybook';
 export { TailwindCSS } from './TailwindCSS';
