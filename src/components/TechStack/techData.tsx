@@ -28,7 +28,8 @@ import {
   Turborepo,
   ReactHookForm,
   Zustand,
-  Shadcn
+  Shadcn,
+  Vitest
 } from '@/icons';
 import { ETechEnum, type ITechIconProps, type TTechEnum } from '@/types';
 
@@ -202,5 +203,10 @@ export const techDataMap: Record<TTechEnum, ITechIconProps> = {
     Icon: Shadcn,
     name: 'Shadcn',
     color: '#000000'
+  },
+  [ETechEnum.vitest]: {
+    Icon: Vitest,
+    name: 'Vitest',
+    color: '#FF4154'
   }
 };

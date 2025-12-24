@@ -36,7 +36,8 @@ export const TechEnumSchema = z.enum([
   'webWorkers',
   'solidity',
   'ethersJs',
-  'shadcn'
+  'shadcn',
+  'vitest'
 ]);
 
 export const ETechEnum = TechEnumSchema.enum;

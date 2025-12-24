@@ -25,6 +25,7 @@ export { TestingLibrary } from './TestingLibrary';
 export { Turborepo } from './Turborepo';
 export { TypeScript } from './TypeScript';
 export { Vite } from './Vite';
+export { Vitest } from './Vitest';
 export { WebSockets } from './WebSockets';
 export { WebWorkers } from './WebWorkers';
 export { Zod } from './Zod';
