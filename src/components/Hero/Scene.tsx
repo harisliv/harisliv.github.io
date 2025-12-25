@@ -1,4 +1,4 @@
-import { Suspense, useState } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import {
   Environment,
@@ -45,8 +45,22 @@ const Loader = () => {
 };
 
 const Scene = () => {
-  const [open, setOpen] = useState(true);
-  const props = useSpring({ open: Number(open) });
+  const [open, setOpen] = useState(false);
+  const props = useSpring({
+    open: Number(open),
+    config: {
+      tension: 40,
+      friction: 40,
+      mass: 1.5
+    }
+  });
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setOpen(true);
+    }, 1200);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="mx-auto h-[450px] w-full max-w-[600px] cursor-pointer sm:h-[500px] lg:h-[550px]">

@@ -1,7 +1,6 @@
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle
 } from '@/components/ui/dialog';
@@ -47,7 +46,7 @@ export function TimelineItem({
         {/* Content card */}
         <motion.div
           className={cn(
-            'relative z-10 w-full p-5 rounded-lg border bg-card shadow-sm mt-2',
+            'relative z-10 w-full p-5 rounded-lg border bg-card/30 backdrop-blur-sm shadow-sm mt-2',
             'hover:shadow-md transition-all duration-300',
             isActive &&
               'border-l-2 border-l-primary border-primary/30 shadow-primary/5 shadow-md'
@@ -119,7 +118,7 @@ export function TimelineItem({
           <Button
             variant="outline"
             size="sm"
-            className="w-full mt-3"
+            className="w-full mt-3 cursor-pointer"
             onClick={() => setIsDetailsOpen(true)}
           >
             <Info className="w-4 h-4 mr-2" />

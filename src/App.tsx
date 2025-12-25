@@ -2,7 +2,7 @@ import { ThemeProvider } from '@/components/ThemeProvider';
 import WavyBackground from '@/components/WavyBackground';
 import Navbar from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
-import { TechCarousel, TechStack } from '@/components/TechStack';
+import { TechStack } from '@/components/TechStack';
 import { Projects } from '@/components/Projects';
 import { EmploymentTimeline } from './components/EmploymentTimeline';
 import Contact from '@/components/Contact/Contact';
@@ -13,13 +13,15 @@ function App({ children }: { children?: React.ReactNode }) {
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <WavyBackground />
       <Navbar />
-      <main>
+      <div className="fixed inset-0 z-0 flex items-center justify-center opacity-40 pointer-events-none">
+        <TechCloud />
+      </div>
+      <main className="relative z-10">
         <Hero />
         <TechStack />
         <EmploymentTimeline />
         <Projects />
         <Contact />
-        <TechCloud />
         {children}
       </main>
     </ThemeProvider>

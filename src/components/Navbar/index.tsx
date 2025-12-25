@@ -4,12 +4,11 @@ import Logo from './Logo';
 import NavLinks, { type NavItem } from './NavLinks';
 import { cn } from '@/lib/utils';
 
-interface NavbarProps {
-  logoName?: string;
+interface INavbarProps {
   navItems?: NavItem[];
 }
 
-const Navbar = ({ logoName, navItems }: NavbarProps) => {
+const Navbar = ({ navItems }: INavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -31,11 +30,11 @@ const Navbar = ({ logoName, navItems }: NavbarProps) => {
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between">
-        <Logo name={logoName} />
+        <Logo />
 
         <div className="flex items-center gap-2">
           <NavLinks items={navItems} />
-          <ModeToggle />
+          {/* <ModeToggle /> */}
         </div>
       </div>
     </header>

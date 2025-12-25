@@ -64,22 +64,33 @@ export const projects: ProjectEntry[] = [
   },
   {
     id: '3',
-    name: 'Task Management App',
+    name: 'Disney Characters Dashboard',
     description:
-      'Collaborative task management application with real-time updates.',
+      'A comprehensive dashboard for exploring Disney characters with data visualization, search, and filtering capabilities.',
+    longDescription:
+      'Built with React and Redux for state management, featuring a data table with pagination and sorting, interactive pie charts using Highcharts, character detail modals, and form components. Integrates with the Disney REST API to display character information including TV shows, video games, allies, and enemies.',
     technologies: [
       ETechEnum.react,
-      ETechEnum.zustand,
+      ETechEnum.typeScript,
+      ETechEnum.redux,
+      ETechEnum.mui,
+      ETechEnum.tanStackQuery,
+      ETechEnum.tanstackTable,
       ETechEnum.reactHookForm,
-      ETechEnum.zod
+      ETechEnum.zod,
+      ETechEnum.vite
     ],
     imageUrl: '/aiportfolio.webp',
     githubUrl: `${import.meta.env.VITE_GITHUB_BASE_URL}`,
     highlights: [
-      'Real-time collaboration features',
-      'Task assignment and tracking',
-      'Form validation with Zod',
-      'State management with Zustand'
-    ]
+      'Data table with pagination (10, 20, 50, 100, 200, 500 per page)',
+      'Advanced search and filtering by TV shows',
+      'Interactive pie chart showing character film participation',
+      'Character detail modal with image and participation lists',
+      'Export chart data to XLSX format',
+      'Real-time chart updates based on table view changes',
+      'Redux for centralized state management'
+    ],
+    featured: true
   }
 ];

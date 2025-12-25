@@ -34,7 +34,7 @@ export default function ProjectCard({
     >
       <motion.div
         className={cn(
-          'relative h-full flex flex-col p-6 rounded-xl border bg-card shadow-sm',
+          'relative h-full flex flex-col p-6 rounded-xl border bg-card/30 backdrop-blur-sm shadow-sm',
           'hover:shadow-lg transition-all duration-300 overflow-hidden',
           project.featured && 'border-primary/30 shadow-primary/5'
         )}
@@ -69,7 +69,7 @@ export default function ProjectCard({
           )}
 
           <div className="mb-4">
-            <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+            <h3 className="text-xl text-indigo-500 font-semibold mb-2 transition-colors">
               {project.name}
             </h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
@@ -79,7 +79,7 @@ export default function ProjectCard({
 
           {project.highlights && project.highlights.length > 0 && (
             <div className="mb-4 flex-1">
-              <h4 className="text-xs font-semibold text-violet-400/80 uppercase tracking-wider mb-2">
+              <h4 className="text-xs font-semibold text-indigo-500 uppercase tracking-wider mb-2">
                 Highlights
               </h4>
               <ul className="space-y-1.5">
@@ -88,7 +88,7 @@ export default function ProjectCard({
                     key={idx}
                     className="text-xs text-foreground/80 flex items-center gap-2"
                   >
-                    <span className="text-violet-400 shrink-0">•</span>
+                    <span className="text-indigo-500 shrink-0">•</span>
                     <span>{highlight}</span>
                   </li>
                 ))}

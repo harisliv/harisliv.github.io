@@ -1,8 +1,49 @@
+import { useState, useMemo, useCallback, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard';
 import { projects } from './projectData';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+  type CarouselApi
+} from '@/components/ui/carousel';
+import { cn } from '@/lib/utils';
 
 export default function Projects() {
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+
+  const onSelect = useCallback((api: CarouselApi) => {
+    if (!api) return;
+    setCurrent(api.selectedScrollSnap());
+    setCount(api.scrollSnapList().length);
+  }, []);
+
+  useEffect(() => {
+    if (!api) return;
+
+    api.on('select', onSelect);
+    api.on('reInit', onSelect);
+
+    queueMicrotask(() => onSelect(api));
+
+    return () => {
+      api.off('select', onSelect);
+      api.off('reInit', onSelect);
+    };
+  }, [api, onSelect]);
+
+  const scrollTo = useCallback(
+    (index: number) => {
+      api?.scrollTo(index);
+    },
+    [api]
+  );
+
   return (
     <section id="projects" className="relative w-full overflow-hidden py-12">
       <div className="relative z-10 mx-auto max-w-7xl px-6">
@@ -30,14 +71,50 @@ export default function Projects() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
-          ))}
+        <div className="w-full flex justify-center">
+          <div className="w-full max-w-7xl relative px-4 md:px-12">
+            <Carousel
+              setApi={setApi}
+              opts={{
+                align: 'start',
+                loop: true
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-2 md:-ml-4">
+                {projects.map((project, index) => (
+                  <CarouselItem
+                    key={project.id}
+                    className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3"
+                  >
+                    <ProjectCard project={project} index={index} />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="hidden md:flex -left-4 lg:-left-12" />
+              <CarouselNext className="hidden md:flex -right-4 lg:-right-12" />
+            </Carousel>
+
+            {count > 1 && (
+              <div className="flex justify-center gap-2 mt-6">
+                {Array.from({ length: count }).map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => scrollTo(index)}
+                    className={cn(
+                      'h-2 rounded-full transition-all duration-300',
+                      index === current
+                        ? 'w-8 bg-primary'
+                        : 'w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                    )}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </section>
   );
 }
-
-

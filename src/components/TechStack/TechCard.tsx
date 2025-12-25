@@ -69,10 +69,7 @@ export function TechCard({
 
         {/* Icon */}
         <div className="relative flex h-full flex-col items-center justify-center gap-4">
-          <Icon
-            className="h-12 w-12 transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-lg"
-            style={{ color: item.color }}
-          />
+          <Icon className="h-12 w-12" style={{ color: item.color }} />
 
           <span className="text-lg font-semibold text-foreground">
             {item.name}

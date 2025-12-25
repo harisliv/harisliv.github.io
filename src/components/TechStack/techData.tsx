@@ -202,7 +202,7 @@ export const techDataMap: Record<TTechEnum, ITechIconProps> = {
   [ETechEnum.shadcn]: {
     Icon: Shadcn,
     name: 'Shadcn',
-    color: '#000000'
+    color: '#dfdfdf'
   },
   [ETechEnum.vitest]: {
     Icon: Vitest,

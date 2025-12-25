@@ -1,13 +1,11 @@
-interface LogoProps {
-  name?: string;
+interface ILogoProps {
   href?: string;
 }
 
-const Logo = ({ name = 'Your Name', href = '/' }: LogoProps) => (
-  <a href={href} className="flex items-center gap-2">
-    <span className="text-xl font-bold text-foreground">{name}</span>
+const Logo = ({ href = '/' }: ILogoProps) => (
+  <a href={href} className="flex items-center">
+    <img src="/logo.png" alt="Logo" className="h-12 w-auto" />
   </a>
 );
 
 export default Logo;
-

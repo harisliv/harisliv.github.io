@@ -55,17 +55,13 @@ const Contact = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5,
-        ease: 'easeOut'
+        duration: 0.5
       }
     }
   };
 
   return (
-    <section
-      id="contact"
-      className="relative w-full overflow-hidden py-20"
-    >
+    <section id="contact" className="relative w-full overflow-hidden py-20">
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -87,8 +83,8 @@ const Contact = () => {
           </h2>
 
           <p className="mx-auto max-w-xl text-muted-foreground">
-            I'm always open to discussing new opportunities, interesting projects,
-            or just having a chat about technology.
+            I'm always open to discussing new opportunities, interesting
+            projects, or just having a chat about technology.
           </p>
         </motion.div>
 
@@ -106,7 +102,11 @@ const Contact = () => {
                 key={index}
                 href={item.href}
                 target={item.href.startsWith('http') ? '_blank' : undefined}
-                rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                rel={
+                  item.href.startsWith('http')
+                    ? 'noopener noreferrer'
+                    : undefined
+                }
                 variants={itemVariants}
                 className={`group relative overflow-hidden rounded-xl border ${item.borderColor} ${item.bgColor} p-6 transition-all duration-300 ${item.hoverBorderColor} hover:scale-105`}
               >
@@ -155,7 +155,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
-
-
-

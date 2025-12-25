@@ -18,23 +18,18 @@ const cloudProps: Omit<ICloud, 'children'> = {
     }
   },
   options: {
-    depth: 0.5,
     wheelZoom: false,
-    imageScale: 1,
-    activeCursor: 'pointer',
     initial: [0.1, -0.1],
     clickToFront: 500,
     tooltipDelay: 0,
-    outlineColour: '#0000',
-    maxSpeed: 0.02,
+    maxSpeed: 0.025,
     minSpeed: 0.01,
-    shape: 'sphere',
-    imageAlign: 'centre',
-    weightGradient: true
+    shape: 'hcylinder'
   },
   canvasProps: {
     style: {
-      width: '1000px'
+      // height: '100vh'
+      width: '60vw'
     }
   }
 };
@@ -56,11 +51,12 @@ const iconSlugs = [
   'storybook',
   'css3',
   'reactquery',
-  'tanstack'
+  'socketdotio'
 ];
 
 export default function TechCloud() {
   const [icons, setIcons] = useState<React.ReactNode[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchSimpleIcons({ slugs: iconSlugs }).then((icons) => {
@@ -74,8 +70,23 @@ export default function TechCloud() {
       const customIcons = customRenderSimpleIcons();
 
       setIcons([...fetchedIcons, ...customIcons]);
+      setLoading(false);
     });
   }, []);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center">
+        <div className="relative h-16 w-16">
+          <div className="absolute inset-0 rounded-full border-4 border-purple-500/20"></div>
+          <div
+            className="absolute inset-0 rounded-full border-4 border-transparent border-t-purple-500 animate-spin"
+            style={{ animationDuration: '1s' }}
+          ></div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div>
