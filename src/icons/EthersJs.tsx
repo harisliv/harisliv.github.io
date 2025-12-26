@@ -1,6 +1,6 @@
-import { FaCode } from 'react-icons/fa';
 import type { SVGProps } from 'react';
+import { SiEthers } from 'react-icons/si';
 
 export function EthersJs({ ...props }: SVGProps<SVGSVGElement>) {
-  return <FaCode {...props} />;
+  return <SiEthers {...props} />;
 }

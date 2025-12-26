@@ -1,8 +1,23 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Linkedin, Mail, Phone } from 'lucide-react';
+import { Linkedin, Mail, Phone, Copy, Check } from 'lucide-react';
 import { resumeData } from '@/shared/resumeData';
 
 const Contact = () => {
+  const [copiedItem, setCopiedItem] = useState<string | null>(null);
+
+  const handleCopy = async (
+    value: string,
+    itemLabel: string,
+    e: React.MouseEvent
+  ) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    await navigator.clipboard.writeText(value);
+    setCopiedItem(itemLabel);
+    setTimeout(() => setCopiedItem(null), 2000);
+  };
   const contactItems = [
     {
       icon: Linkedin,
@@ -13,7 +28,8 @@ const Contact = () => {
       hoverColor: 'hover:shadow-blue-500/25',
       bgColor: 'bg-blue-500/10',
       borderColor: 'border-blue-500/30',
-      hoverBorderColor: 'hover:border-blue-500/50'
+      hoverBorderColor: 'hover:border-blue-500/50',
+      copyable: false
     },
     {
       icon: Mail,
@@ -24,7 +40,8 @@ const Contact = () => {
       hoverColor: 'hover:shadow-violet-500/25',
       bgColor: 'bg-violet-500/10',
       borderColor: 'border-violet-500/30',
-      hoverBorderColor: 'hover:border-violet-500/50'
+      hoverBorderColor: 'hover:border-violet-500/50',
+      copyable: true
     },
     {
       icon: Phone,
@@ -35,7 +52,8 @@ const Contact = () => {
       hoverColor: 'hover:shadow-cyan-500/25',
       bgColor: 'bg-cyan-500/10',
       borderColor: 'border-cyan-500/30',
-      hoverBorderColor: 'hover:border-cyan-500/50'
+      hoverBorderColor: 'hover:border-cyan-500/50',
+      copyable: true
     }
   ];
 
@@ -110,6 +128,20 @@ const Contact = () => {
                 variants={itemVariants}
                 className={`group relative overflow-hidden rounded-xl border ${item.borderColor} ${item.bgColor} p-6 transition-all duration-300 ${item.hoverBorderColor} hover:scale-105`}
               >
+                {item.copyable && (
+                  <button
+                    onClick={(e) => handleCopy(item.value, item.label, e)}
+                    className="absolute cursor-pointer right-4 top-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:scale-110 active:scale-95"
+                    aria-label={`Copy ${item.label}`}
+                  >
+                    {copiedItem === item.label ? (
+                      <Check className="h-4 w-4 text-green-500" />
+                    ) : (
+                      <Copy className="h-4 w-4 text-muted-foreground hover:text-foreground" />
+                    )}
+                  </button>
+                )}
+
                 <div className="relative z-10">
                   <div
                     className={`mb-4 inline-flex rounded-lg bg-gradient-to-r ${item.color} p-3 shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}

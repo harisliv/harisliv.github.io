@@ -28,7 +28,7 @@ export const projects: ProjectEntry[] = [
       ETechEnum.vite,
       ETechEnum.shadcn
     ],
-    imageUrl: '/aiform.webp',
+    imageUrl: '/aiportfolio.webp',
     githubUrl: `${import.meta.env.VITE_GITHUB_BASE_URL}/harisliv.github.io`,
     liveUrl: 'https://harisliv.github.io',
     highlights: [
@@ -50,10 +50,13 @@ export const projects: ProjectEntry[] = [
       ETechEnum.mui,
       ETechEnum.typeScript,
       ETechEnum.tanStackQuery,
-      ETechEnum.tanstackTable
+      ETechEnum.tanstackTable,
+      ETechEnum.reactHookForm,
+      ETechEnum.zod
     ],
     imageUrl: '/aiiss.webp',
     githubUrl: `${import.meta.env.VITE_GITHUB_BASE_URL}`,
+    liveUrl: 'https://slice-livid.vercel.app/',
     highlights: [
       'Multi-step forms with 4 major sections and nested tabs',
       'Track enrolled and registered students with comprehensive data tables',
@@ -71,25 +74,20 @@ export const projects: ProjectEntry[] = [
       'Built with React and Redux for state management, featuring a data table with pagination and sorting, interactive pie charts using Highcharts, character detail modals, and form components. Integrates with the Disney REST API to display character information including TV shows, video games, allies, and enemies.',
     technologies: [
       ETechEnum.react,
-      ETechEnum.typeScript,
-      ETechEnum.redux,
+      ETechEnum.vite,
       ETechEnum.mui,
+      ETechEnum.typeScript,
       ETechEnum.tanStackQuery,
-      ETechEnum.tanstackTable,
-      ETechEnum.reactHookForm,
-      ETechEnum.zod,
-      ETechEnum.vite
+      ETechEnum.tanstackTable
     ],
-    imageUrl: '/aiportfolio.webp',
+    imageUrl: '/disney.webp',
     githubUrl: `${import.meta.env.VITE_GITHUB_BASE_URL}`,
     highlights: [
-      'Data table with pagination (10, 20, 50, 100, 200, 500 per page)',
       'Advanced search and filtering by TV shows',
       'Interactive pie chart showing character film participation',
       'Character detail modal with image and participation lists',
       'Export chart data to XLSX format',
-      'Real-time chart updates based on table view changes',
-      'Redux for centralized state management'
+      'Real-time chart updates based on table view changes'
     ],
     featured: true
   }

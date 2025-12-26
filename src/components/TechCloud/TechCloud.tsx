@@ -42,7 +42,6 @@ const iconSlugs = [
   'nestjs',
   'redux',
   'jest',
-  'reactrouter',
   'testinglibrary',
   'mui',
   'tailwindcss',

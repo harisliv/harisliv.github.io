@@ -1,5 +1,6 @@
-import { useState, useMemo, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import Autoplay from 'embla-carousel-autoplay';
 import ProjectCard from './ProjectCard';
 import { projects } from './projectData';
 import {
@@ -16,6 +17,14 @@ export default function Projects() {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
+  const autoplay = useRef(
+    Autoplay({
+      delay: 4000,
+      stopOnInteraction: false,
+      stopOnMouseEnter: true,
+      playOnInit: false
+    })
+  );
 
   const onSelect = useCallback((api: CarouselApi) => {
     if (!api) return;
@@ -45,7 +54,7 @@ export default function Projects() {
   );
 
   return (
-    <section id="projects" className="relative w-full overflow-hidden py-12">
+    <section id="projects" className="relative w-full overflow-visible py-12">
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -71,21 +80,23 @@ export default function Projects() {
           </p>
         </motion.div>
 
-        <div className="w-full flex justify-center">
-          <div className="w-full max-w-7xl relative px-4 md:px-12">
+        <div className="w-full flex justify-center overflow-visible">
+          <div className="w-full max-w-7xl relative pl-4 md:pl-12 pr-8 md:pr-20 overflow-visible">
             <Carousel
               setApi={setApi}
               opts={{
                 align: 'start',
-                loop: true
+                loop: true,
+                slidesToScroll: 1
               }}
-              className="w-full"
+              plugins={[autoplay.current]}
+              className="w-full overflow-visible"
             >
-              <CarouselContent className="-ml-2 md:-ml-4">
+              <CarouselContent className="-ml-2 md:-ml-4 py-8 pl-8" withPadding>
                 {projects.map((project, index) => (
                   <CarouselItem
                     key={project.id}
-                    className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3"
+                    className="pl-2 md:pl-4 basis-1/2 overflow-visible"
                   >
                     <ProjectCard project={project} index={index} />
                   </CarouselItem>

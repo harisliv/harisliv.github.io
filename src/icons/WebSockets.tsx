@@ -1,6 +1,6 @@
-import { FaPlug } from 'react-icons/fa';
 import type { SVGProps } from 'react';
+import { SiSocketdotio } from 'react-icons/si';
 
 export function WebSockets({ ...props }: SVGProps<SVGSVGElement>) {
-  return <FaPlug {...props} />;
+  return <SiSocketdotio {...props} />;
 }

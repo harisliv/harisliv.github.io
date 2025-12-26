@@ -92,7 +92,7 @@ export const techDataMap: Record<TTechEnum, ITechIconProps> = {
   [ETechEnum.reactQuery]: {
     Icon: TanStackQuery,
     name: 'React Query',
-    color: '#FF4154'
+    color: '#fd6363'
   },
   [ETechEnum.redux]: {
     Icon: Redux,
@@ -161,8 +161,8 @@ export const techDataMap: Record<TTechEnum, ITechIconProps> = {
   },
   [ETechEnum.webSockets]: {
     Icon: WebSockets,
-    name: 'WebSockets',
-    color: '#010101'
+    name: 'Web Sockets',
+    color: '#bbafaf'
   },
   [ETechEnum.reactFlow]: {
     Icon: ReactFlow,
@@ -192,7 +192,7 @@ export const techDataMap: Record<TTechEnum, ITechIconProps> = {
   [ETechEnum.solidity]: {
     Icon: Solidity,
     name: 'Solidity',
-    color: '#363636'
+    color: '#7f6363'
   },
   [ETechEnum.ethersJs]: {
     Icon: EthersJs,
@@ -207,6 +207,6 @@ export const techDataMap: Record<TTechEnum, ITechIconProps> = {
   [ETechEnum.vitest]: {
     Icon: Vitest,
     name: 'Vitest',
-    color: '#FF4154'
+    color: '#239623'
   }
 };

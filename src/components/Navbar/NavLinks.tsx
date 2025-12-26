@@ -3,6 +3,7 @@ import {
   NavigationMenuList
 } from '@/components/ui/navigation-menu';
 import NavLink from './NavLink';
+import DownloadResumeButton from './DownloadResumeButton';
 
 export interface NavItem {
   href: string;
@@ -29,6 +30,7 @@ const NavLinks = ({ items = defaultNavItems }: NavLinksProps) => (
           {item.label}
         </NavLink>
       ))}
+      <DownloadResumeButton />
     </NavigationMenuList>
   </NavigationMenu>
 );

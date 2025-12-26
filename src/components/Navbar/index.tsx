@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { ModeToggle } from '@/components/ThemeProvider/mode-toggle';
 import Logo from './Logo';
 import NavLinks, { type NavItem } from './NavLinks';
 import { cn } from '@/lib/utils';

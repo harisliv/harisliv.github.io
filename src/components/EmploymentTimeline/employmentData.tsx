@@ -83,7 +83,8 @@ export const employmentHistory: EmploymentEntry[] = [
         technologies: [
           ETechEnum.webSockets,
           ETechEnum.webWorkers,
-          ETechEnum.mui
+          ETechEnum.mui,
+          ETechEnum.vitest
         ],
         details: [
           'Promoted to Deputy Team Leader and Senior Engineer, overseeing a team of three developers.',
@@ -117,7 +118,8 @@ export const employmentHistory: EmploymentEntry[] = [
         technologies: [
           ETechEnum.expressJs,
           ETechEnum.reactQuery,
-          ETechEnum.reactFlow
+          ETechEnum.reactFlow,
+          ETechEnum.jest
         ],
         details: [
           'Led full-stack development with Next.js and custom Express.js backend, optimizing application performance by implementing React Query for API calls and migrating from Redux Connect to Redux Toolkit, resulting in reduced network requests and improved state management.',
@@ -136,6 +138,17 @@ export const employmentHistory: EmploymentEntry[] = [
     location: 'Athens, Greece',
     shortDescription:
       'AGENSO is a company in developing solutions for increased sustainability. ',
-    baseTechnologies: [ETechEnum.react, ETechEnum.javaScript, ETechEnum.css]
+    baseTechnologies: [ETechEnum.react, ETechEnum.javaScript, ETechEnum.css],
+    projects: [
+      {
+        name: 'AGENSO',
+        description:
+          'AGENSO is a company in developing solutions for increased sustainability.',
+        technologies: [ETechEnum.react, ETechEnum.javaScript, ETechEnum.css],
+        details: [
+          'Developed custom React applications for European Union funded research projects, creating interactive visualizations and data-driven interfaces that effectively displayed complex agricultural sustainability data.'
+        ]
+      }
+    ]
   }
 ];

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Download } from 'lucide-react';
 import {
   NavigationMenuItem,
@@ -6,39 +5,30 @@ import {
   navigationMenuTriggerStyle
 } from '@/components/ui/navigation-menu';
 import { cn } from '@/lib/utils';
-import { generateResumePDF } from '@/utils/generateResumePDF';
 
 const DownloadResumeButton = () => {
-  const [isGenerating, setIsGenerating] = useState(false);
-
-  const handleDownload = async () => {
-    setIsGenerating(true);
-    try {
-      await generateResumePDF();
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error('Failed to generate PDF:', error);
-      // You could add a toast notification here if you have one
-    } finally {
-      setIsGenerating(false);
-    }
+  const handleDownload = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const link = document.createElement('a');
+    link.href = '/resume.pdf';
+    link.download = 'resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
     <NavigationMenuItem>
       <NavigationMenuLink
-        onClick={(e) => {
-          e.preventDefault();
-          handleDownload();
-        }}
+        href="/resume.pdf"
+        onClick={handleDownload}
         className={cn(
           navigationMenuTriggerStyle(),
-          'bg-transparent hover:bg-white/10 cursor-pointer',
-          isGenerating && 'opacity-50 cursor-wait'
+          'bg-transparent hover:bg-white/10 cursor-pointer flex-row gap-2'
         )}
       >
-        <Download className="mr-2 h-4 w-4" />
-        {isGenerating ? 'Generating...' : 'Download Resume'}
+        <Download className="h-4 w-4" />
+        CV
       </NavigationMenuLink>
     </NavigationMenuItem>
   );
