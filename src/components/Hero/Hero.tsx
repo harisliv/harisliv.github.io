@@ -3,7 +3,10 @@ import Typewriter from 'typewriter-effect';
 import Scene from './Scene';
 
 const Hero = () => (
-  <section className="relative flex w-full flex-col items-center justify-center overflow-hidden pt-20">
+  <section
+    className="relative flex w-full flex-col items-center justify-center overflow-hidden pt-20"
+    id="about"
+  >
     {/* Text Content */}
     <div className="z-10 mx-auto w-full max-w-7xl px-6 text-center lg:text-left">
       <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12">
