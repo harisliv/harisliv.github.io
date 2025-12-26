@@ -29,7 +29,7 @@ export const projects: ProjectEntry[] = [
       ETechEnum.shadcn
     ],
     imageUrl:
-      'https://res.cloudinary.com/dud448o8u/image/upload/v1766767130/aiportfolio_usfss6.webp',
+      'https://res.cloudinary.com/dud448o8u/image/upload/v1766767130/portfolio/aiportfolio_usfss6.webp',
     githubUrl: `https://github.com/harisliv/harisliv.github.io`,
     liveUrl: 'https://harisliv.github.io',
     highlights: [
@@ -56,7 +56,7 @@ export const projects: ProjectEntry[] = [
       ETechEnum.zod
     ],
     imageUrl:
-      'https://res.cloudinary.com/dud448o8u/image/upload/v1766767130/aiiss_qsfppq.webp',
+      'https://res.cloudinary.com/dud448o8u/image/upload/v1766767130/portfolio/aiiss_qsfppq.webp',
     githubUrl: `https://github.com/harisliv/Slice`,
     liveUrl: 'https://slice-livid.vercel.app/',
     highlights: [
@@ -83,7 +83,7 @@ export const projects: ProjectEntry[] = [
       ETechEnum.tanstackTable
     ],
     imageUrl:
-      'https://res.cloudinary.com/dud448o8u/image/upload/v1766767130/disney_edhfsp.webp',
+      'https://res.cloudinary.com/dud448o8u/image/upload/v1766767130/portfolio/disney_edhfsp.webp',
     githubUrl: `https://github.com/harisliv/disneyChars`,
     liveUrl: 'https://disney-chars.vercel.app/',
     highlights: [
