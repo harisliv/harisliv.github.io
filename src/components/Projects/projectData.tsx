@@ -28,8 +28,9 @@ export const projects: ProjectEntry[] = [
       ETechEnum.vite,
       ETechEnum.shadcn
     ],
-    imageUrl: '/aiportfolio.webp',
-    githubUrl: `${import.meta.env.VITE_GITHUB_BASE_URL}/harisliv.github.io`,
+    imageUrl:
+      'https://res.cloudinary.com/dud448o8u/image/upload/v1766767130/aiportfolio_usfss6.webp',
+    githubUrl: `https://github.com/harisliv/harisliv.github.io`,
     liveUrl: 'https://harisliv.github.io',
     highlights: [
       'Dark mode support with theme switching',
@@ -54,8 +55,9 @@ export const projects: ProjectEntry[] = [
       ETechEnum.reactHookForm,
       ETechEnum.zod
     ],
-    imageUrl: '/aiiss.webp',
-    githubUrl: `${import.meta.env.VITE_GITHUB_BASE_URL}`,
+    imageUrl:
+      'https://res.cloudinary.com/dud448o8u/image/upload/v1766767130/aiiss_qsfppq.webp',
+    githubUrl: `https://github.com/harisliv/Slice`,
     liveUrl: 'https://slice-livid.vercel.app/',
     highlights: [
       'Multi-step forms with 4 major sections and nested tabs',
@@ -80,8 +82,10 @@ export const projects: ProjectEntry[] = [
       ETechEnum.tanStackQuery,
       ETechEnum.tanstackTable
     ],
-    imageUrl: '/disney.webp',
-    githubUrl: `${import.meta.env.VITE_GITHUB_BASE_URL}`,
+    imageUrl:
+      'https://res.cloudinary.com/dud448o8u/image/upload/v1766767130/disney_edhfsp.webp',
+    githubUrl: `https://github.com/harisliv/disneyChars`,
+    liveUrl: 'https://disney-chars.vercel.app/',
     highlights: [
       'Advanced search and filtering by TV shows',
       'Interactive pie chart showing character film participation',

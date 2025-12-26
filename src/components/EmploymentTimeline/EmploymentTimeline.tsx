@@ -112,7 +112,11 @@ export function EmploymentTimeline() {
                       key={entry.id}
                       className="pl-2 md:pl-20 basis-full sm:basis-1/2 lg:basis-1/3"
                     >
-                      <TimelineItem entry={entry} isActive={isActive} />
+                      <TimelineItem
+                        entry={entry}
+                        isActive={isActive}
+                        key={entry.id}
+                      />
                     </CarouselItem>
                   );
                 })}

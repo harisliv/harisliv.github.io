@@ -109,7 +109,9 @@ export function TimelineItem({
             <div className="flex flex-wrap gap-1.5 mt-3 pt-3 border-t border-border mb-3">
               {entry.baseTechnologies.map((tech) => {
                 const techInfo = getTechIcon(tech);
-                return <TechBadge item={techInfo} multicolor={true} />;
+                return (
+                  <TechBadge key={tech} item={techInfo} multicolor={true} />
+                );
               })}
             </div>
           )}

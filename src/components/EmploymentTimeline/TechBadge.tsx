@@ -23,11 +23,7 @@ export function TechBadge({
         border: `1px solid ${color}30`
       }}
     >
-      <Icon
-        multicolor={multicolor}
-        className="w-4 h-4 shrink-0"
-        color={iconColor}
-      />
+      <Icon className="w-4 h-4 shrink-0" color={iconColor} />
       <span className="whitespace-nowrap">{name}</span>
     </span>
   );

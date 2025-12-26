@@ -59,7 +59,13 @@ export default function EmploymentDetails({
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => {
                       const techInfo = getTechIcon(tech);
-                      return <TechBadge item={techInfo} multicolor={true} />;
+                      return (
+                        <TechBadge
+                          key={tech}
+                          item={techInfo}
+                          multicolor={true}
+                        />
+                      );
                     })}
                   </div>
                 </div>

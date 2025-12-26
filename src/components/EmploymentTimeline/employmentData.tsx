@@ -49,6 +49,7 @@ export const employmentHistory: EmploymentEntry[] = [
           ETechEnum.reactRouter,
           ETechEnum.mui,
           ETechEnum.tanstackTable,
+          ETechEnum.tanStackQuery,
           ETechEnum.zustand
         ],
         details: [

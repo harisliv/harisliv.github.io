@@ -85,6 +85,8 @@ const Scene = () => {
               hinge={props.open.to([0, 1], [1.575, -0.425])}
             />
           </group>
+        </Suspense>
+        <Suspense fallback={null}>
           <Environment preset="city" />
         </Suspense>
         <ContactShadows
