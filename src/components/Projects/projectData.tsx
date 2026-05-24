@@ -1,5 +1,8 @@
 import { ETechEnum, type TTechEnum } from '@/types';
 
+const githubBase = import.meta.env.VITE_GITHUB_BASE_URL;
+const cloudinaryImageBase = import.meta.env.VITE_CLOUDINARY_IMAGE_UPLOAD_BASE;
+
 export interface ProjectEntry {
   id: string;
   name: string;
@@ -15,6 +18,36 @@ export interface ProjectEntry {
 
 export const projects: ProjectEntry[] = [
   {
+    id: '0',
+    name: 'AI Resume Builder',
+    description:
+      'Full-stack resume application with core editing, authentication, cloud persistence, AI-assisted workflows, and PDF export.',
+    longDescription:
+      'Next.js app with Convex backend and WorkOS AuthKit. Flagship flows include AI PDF parse into structured fields, AI resume improvement with review and apply, JD match with tailored resume versions, and styled PDF export via @react-pdf/renderer. Multi-resume management, real-time preview, and seeded prompts with attempt tracking.',
+    technologies: [
+      ETechEnum.nextJs,
+      ETechEnum.react,
+      ETechEnum.typeScript,
+      ETechEnum.tailwindCSS,
+      ETechEnum.shadcn,
+      ETechEnum.reactHookForm,
+      ETechEnum.zod,
+      ETechEnum.vitest,
+      ETechEnum.testingLibrary,
+      ETechEnum.pnpm
+    ],
+    highlights: [
+      'End-to-end workflow: import PDF, edit, AI improve, JD-tailored versions, preview and export',
+      'Productized AI with review steps and structured output—not one-shot generations',
+      'Convex persistence, AI actions, and versioning so JD matching creates new resumes',
+      'Typed forms, Vitest + RTL coverage, and modular feature modules (Improve, Match, PDF)'
+    ],
+    featured: true,
+    imageUrl: `${cloudinaryImageBase}/ChatGPT_Image_Apr_28_2026_05_01_36_PM_e47vct.png`,
+    githubUrl: `${githubBase}/resume-builder`,
+    liveUrl: 'https://resume-builder-iota-bay.vercel.app/'
+  },
+  {
     id: '1',
     name: 'Portfolio Website',
     description:
@@ -28,9 +61,8 @@ export const projects: ProjectEntry[] = [
       ETechEnum.vite,
       ETechEnum.shadcn
     ],
-    imageUrl:
-      'https://res.cloudinary.com/dud448o8u/image/upload/v1766767130/aiportfolio_usfss6.webp',
-    githubUrl: `https://github.com/harisliv/harisliv.github.io`,
+    imageUrl: `${cloudinaryImageBase}/aiportfolio_usfss6.webp`,
+    githubUrl: `${githubBase}/harisliv.github.io`,
     liveUrl: 'https://harisliv.github.io',
     highlights: [
       'Dark mode support with theme switching',
@@ -55,9 +87,8 @@ export const projects: ProjectEntry[] = [
       ETechEnum.reactHookForm,
       ETechEnum.zod
     ],
-    imageUrl:
-      'https://res.cloudinary.com/dud448o8u/image/upload/v1766767130/aiiss_qsfppq.webp',
-    githubUrl: `https://github.com/harisliv/Slice`,
+    imageUrl: `${cloudinaryImageBase}/aiiss_qsfppq.webp`,
+    githubUrl: `${githubBase}/Slice`,
     liveUrl: 'https://slice-livid.vercel.app/',
     highlights: [
       'Multi-step forms with 4 major sections and nested tabs',
@@ -82,9 +113,8 @@ export const projects: ProjectEntry[] = [
       ETechEnum.tanStackQuery,
       ETechEnum.tanstackTable
     ],
-    imageUrl:
-      'https://res.cloudinary.com/dud448o8u/image/upload/v1766767130/disney_edhfsp.webp',
-    githubUrl: `https://github.com/harisliv/disneyChars`,
+    imageUrl: `${cloudinaryImageBase}/disney_edhfsp.webp`,
+    githubUrl: `${githubBase}/disneyChars`,
     liveUrl: 'https://disney-chars.vercel.app/',
     highlights: [
       'Advanced search and filtering by TV shows',
